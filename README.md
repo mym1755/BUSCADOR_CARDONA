@@ -1,40 +1,45 @@
 # BuscadorDokan – Torneo de Karate Dragones Cardona
 
-Buscador web (HTML + CSS + JavaScript puro, sin instalaciones) para que los participantes
-encuentren su categoría, ring, horario y competidores. Se despliega gratis en GitHub Pages.
+Buscador web (HTML + CSS + JavaScript puro) para que los participantes encuentren su categoría,
+ring, horario y contra quién les puede tocar. Se publica gratis en GitHub Pages.
 
 ## Archivos
 
-| Archivo      | Para qué sirve                                                  |
-|--------------|-----------------------------------------------------------------|
-| `index.html` | Estructura de la página                                         |
-| `styles.css` | Diseño (colores en las variables al inicio del archivo)         |
-| `script.js`  | Lógica de búsqueda (no necesitas tocarlo)                       |
-| `data.js`    | **Datos del evento, categorías y competidores (edita este)**    |
+| Archivo         | Para qué sirve                                                      |
+|-----------------|---------------------------------------------------------------------|
+| `index.html`    | Estructura de la página                                             |
+| `styles.css`    | Diseño (colores en las variables al inicio)                         |
+| `script.js`     | Lógica de búsqueda (no hace falta tocarlo)                          |
+| `data.js`       | Información general del evento (fecha, lugar, teléfono, Facebook)   |
+| `categorias.js` | Categorías con su **ring y hora de inicio** (una línea por categoría)|
+| `inscritos.js`  | Competidores (una línea por persona)                                |
 
-## Publicarlo en GitHub Pages (sin usar la terminal)
+## Cambiar ring u horario
 
-1. Entra a <https://github.com/new>, nombre del repositorio: `BuscadorDokan`, visibilidad **Public** y crea el repo.
-2. Pulsa **uploading an existing file** y arrastra los 4 archivos (`index.html`, `styles.css`, `script.js`, `data.js`) más este `README.md`. Pulsa **Commit changes**.
-3. Ve a **Settings → Pages**. En *Build and deployment* elige **Deploy from a branch**, rama `main`, carpeta `/ (root)` y guarda.
-4. En 1–2 minutos tu sitio estará en `https://TU-USUARIO.github.io/BuscadorDokan/`.
-
-## Agregar categorías y competidores después
-
-1. En GitHub abre `data.js` y pulsa el lápiz ✏️ (Edit).
-2. Agrega filas en `CATEGORIAS` o `COMPETIDORES`, respetando las comas:
+En `categorias.js` edita `ring` y `hora` (formato 24 h) de la categoría:
 
 ```js
-{ codigo: "KT-INF", nombre: "Kata Tradicional Infantil", ring: "Ring 2", horario: "9:30 AM" },
-{ codigo: "DC-001", nombre: "Nombre Apellido", gym: "Dragones Cardona", categoria: "KT-INF" },
+{ codigo: "CPL-017", nombre: "Cuartetas / Puntos Libre · 8 a 9 años · Principiante · Masculino", ..., ring: 1, hora: "09:15", ... },
 ```
 
-3. Pulsa **Commit changes**. La página se actualiza sola en un minuto.
+## Agregar o corregir competidores
 
-Reglas: el campo `categoria` del competidor debe ser igual al `codigo` de una categoría, y los
-códigos no se pueden repetir. Si hay un error, abre la consola del navegador (F12) y verás un aviso.
+En `inscritos.js`, copia una línea y cambia los datos:
+
+```js
+{ nombre: "Nombre Apellido", genero: "Masculino", edad: 12, cinta: "Azul", categorias: ["CPL-036", "KA-020"] },
+```
+
+Si compite en dos categorías, pon los dos códigos. El código debe existir en `categorias.js`.
+Si falla algo, abre la consola del navegador (F12): ahí salen avisos de qué línea revisar.
+
+## Publicar cambios
+
+En GitHub abre el archivo, pulsa el lápiz ✏️, edita y pulsa **Commit changes**.
+La página se actualiza sola en uno o dos minutos.
 
 ## Cómo busca
 
-Ignora mayúsculas, acentos, guiones y espacios extra. `kata tradicional`, `KATA-TRADICIONAL`,
-`dc001` y `DC-001` funcionan por igual. También puede buscar por nombre del gimnasio.
+Ignora mayúsculas, acentos, guiones y espacios extra. `sofia mazariegos`, `SOFÍA MAZARIEGOS`,
+`cpl017` y `CPL-017` funcionan igual. Un código exacto (`cpl017`) abre solo esa categoría. También se
+puede buscar por modalidad (`kata con arma`), género y edad (`femenino 14`) o cinta (`negra`).

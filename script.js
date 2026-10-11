@@ -1,6 +1,7 @@
 /* ============================================================
    Buscador – Torneo de Karate Dragones Cardona
-   Los datos viven en data.js (EVENTO, CATEGORIAS, COMPETIDORES).
+   Datos: data.js (EVENTO), categorias.js (CATEGORIAS con ring y hora)
+   e inscritos.js (COMPETIDORES).
    La búsqueda ignora acentos, mayúsculas, guiones y espacios extra.
    ============================================================ */
 
@@ -27,30 +28,72 @@ function normalizarConMapa(texto) {
   return { norm, map };
 }
 
-/* ------------------- ÍNDICE DE BÚSQUEDA -------------------- */
-function crearIndice(items, camposFn) {
-  return items.map((it) => {
-    const texto = normalizar(camposFn(it));
-    return { ...it, texto, compacto: texto.replace(/ /g, "") };
-  });
-}
-const indiceCategorias  = crearIndice(CATEGORIAS,   (c) => `${c.codigo} ${c.nombre}`);
-const indiceCompetidores = crearIndice(COMPETIDORES, (p) => `${p.codigo} ${p.nombre} ${p.gym}`);
-
-// Coincide si TODAS las palabras aparecen (en cualquier orden)
-// o si la consulta sin espacios está contenida en el texto sin espacios ("dc001" → "DC-001").
-function coincide(entrada, consultaNorm, consultaCompacta) {
-  if (!consultaNorm) return true;
-  return (
-    consultaNorm.split(" ").every((w) => entrada.texto.includes(w)) ||
-    entrada.compacto.includes(consultaCompacta)
-  );
-}
-
-/* ----------------------- Utilidades ------------------------ */
 const $ = (id) => document.getElementById(id);
 const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ESC[c]);
+const sinEspacios = (t) => t.replace(/ /g, "");
+const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+
+/* ------------------- CATEGORÍAS + INSCRITOS ---------------- */
+const POR_DEFINIR = "Por definir";
+const LIMITE_TARJETAS = 30;
+
+const PERSONAS = COMPETIDORES.map((p, i) => ({ ...p, id: i, categorias: p.categorias || [] }));
+
+const porCodigo = new Map();
+PERSONAS.forEach((p) => p.categorias.forEach((cod) => {
+  if (!porCodigo.has(cod)) porCodigo.set(cod, []);
+  porCodigo.get(cod).push(p);
+}));
+
+// "13:15" → "1:15 PM"
+function formatoHora(h) {
+  const m = /^(\d{1,2}):(\d{2})/.exec(String(h ?? ""));
+  if (!m) return POR_DEFINIR;
+  const hh = Number(m[1]);
+  return `${hh % 12 || 12}:${m[2]} ${hh >= 12 ? "PM" : "AM"}`;
+}
+
+// Si un inscrito usa un código que no existe en categorias.js, se crea una categoría provisional.
+const codigosConocidos = new Set(CATEGORIAS.map((c) => c.codigo));
+const provisionales = [...porCodigo.keys()]
+  .filter((cod) => !codigosConocidos.has(cod))
+  .map((codigo, i) => ({ codigo, nombre: codigo, cintas: [], orden: 9000 + i }));
+
+const CATS = [...CATEGORIAS, ...provisionales].map((c) => {
+  const partes = String(c.nombre).split(" · ");
+  return {
+    ...c,
+    tipo: partes[0],
+    detalle: partes.slice(1).join(" · "),
+    cintas: c.cintas || [],
+    miembros: porCodigo.get(c.codigo) || [],
+    ringTxt: c.ring ? `Ring ${c.ring}` : POR_DEFINIR,
+    horaTxt: formatoHora(c.hora)
+  };
+}).sort((a, b) => (a.orden ?? 9999) - (b.orden ?? 9999));
+
+/* ------------------- ÍNDICE DE BÚSQUEDA -------------------- */
+const indiceCategorias = CATS.map((c) => {
+  const texto = normalizar(`${c.codigo} ${c.nombre}`);
+  return { cat: c, texto, compacto: sinEspacios(texto), codigoCompacto: sinEspacios(normalizar(c.codigo)) };
+});
+const indicePersonas = PERSONAS.map((p) => {
+  const texto = normalizar(`${p.nombre} ${p.cinta}`);
+  return { persona: p, texto, compacto: sinEspacios(texto) };
+});
+
+// Coincide si TODAS las palabras aparecen (en cualquier orden)
+// o si la consulta sin espacios está contenida en el texto sin espacios ("cpl017" → "CPL-017").
+// Los números solos ("14") solo cuentan al inicio de una palabra, para que "14" no
+// encuentre el código "014"; el resto de las palabras puede coincidir en cualquier parte.
+function coincide(entrada, consultaNorm, consultaCompacta) {
+  const palabras = entrada.texto.split(" ");
+  const tokensOk = consultaNorm.split(" ").every((w) =>
+    /^\d+$/.test(w) ? palabras.some((p) => p.startsWith(w)) : entrada.texto.includes(w)
+  );
+  return tokensOk || (!/^\d+$/.test(consultaCompacta) && entrada.compacto.includes(consultaCompacta));
+}
 
 // Resalta coincidencias respetando los acentos del texto original.
 function resaltar(texto, consultaNorm) {
@@ -76,15 +119,20 @@ function resaltar(texto, consultaNorm) {
 }
 
 /* ------------------ Validación de datos -------------------- */
-// Avisa en la consola del navegador (F12) si hay errores al editar data.js.
+// Avisa en la consola del navegador (F12) si hay errores al editar los datos.
 (function validarDatos() {
-  const codsCat = new Set(CATEGORIAS.map((c) => c.codigo));
-  if (codsCat.size !== CATEGORIAS.length) console.warn("[data.js] Hay códigos de categoría repetidos.");
+  const nombres = new Set();
+  PERSONAS.forEach((p) => {
+    const n = normalizar(p.nombre);
+    if (nombres.has(n)) console.warn(`[inscritos.js] Nombre repetido: ${p.nombre}`);
+    nombres.add(n);
+    if (!p.categorias.length) console.warn(`[inscritos.js] ${p.nombre} no tiene categorías.`);
+  });
+  provisionales.forEach((c) => console.warn(`[categorias.js] Falta la categoría "${c.codigo}" (hay inscritos que la usan).`));
   const vistos = new Set();
-  COMPETIDORES.forEach((p) => {
-    if (!codsCat.has(p.categoria)) console.warn(`[data.js] "${p.nombre}" (${p.codigo}) tiene una categoría que no existe: "${p.categoria}".`);
-    if (vistos.has(p.codigo)) console.warn(`[data.js] Código de competidor repetido: ${p.codigo}`);
-    vistos.add(p.codigo);
+  CATEGORIAS.forEach((c) => {
+    if (vistos.has(c.codigo)) console.warn(`[categorias.js] Código de categoría repetido: ${c.codigo}`);
+    vistos.add(c.codigo);
   });
 })();
 
@@ -97,55 +145,75 @@ const vacio = $("vacio");
 const btnLimpiar = $("limpiar");
 let modo = "todo";
 
-function tarjeta(cat, consultaNorm, compCoinciden) {
-  const miembros = COMPETIDORES.filter((p) => p.categoria === cat.codigo);
-  const items = miembros.map((p) => `
-    <li class="comp${compCoinciden.has(p.codigo) ? " match" : ""}">
-      <span class="comp-name">${resaltar(p.nombre, consultaNorm)}</span>
-      <span class="comp-code">${resaltar(p.codigo, consultaNorm)}</span>
-      <span class="comp-gym">${resaltar(p.gym, consultaNorm)}</span>
-    </li>`).join("");
+function tarjeta(cat, consultaNorm, coinciden) {
+  const items = cat.miembros.map((p) => {
+    const otras = p.categorias.filter((c) => c !== cat.codigo);
+    const tambien = otras.length ? ` · <span class="also">También en ${otras.map(esc).join(", ")}</span>` : "";
+    return `
+    <li class="comp${coinciden.has(p.id) ? " match" : ""}">
+      <span class="comp-name">${coinciden.has(p.id) ? resaltar(p.nombre, consultaNorm) : esc(p.nombre)}</span>
+      <span class="comp-code" data-cinta="${esc(normalizar(p.cinta))}">${esc(p.cinta)}</span>
+      <span class="comp-gym">${esc(p.edad)} años · ${esc(p.genero)}${tambien}</span>
+    </li>`;
+  }).join("");
+
+  const nota = cat.miembros.length === 0
+    ? '<li class="comp comp-empty">Aún no hay competidores inscritos en esta categoría.</li>'
+    : cat.miembros.length === 1
+      ? '<li class="comp comp-empty">Por ahora es la única persona inscrita en esta categoría.</li>' : "";
 
   return `
   <article class="card">
     <div class="card-head">
       <div>
         <span class="cat-code">${resaltar(cat.codigo, consultaNorm)}</span>
-        <h2 class="cat-name">${resaltar(cat.nombre, consultaNorm)}</h2>
+        <h2 class="cat-name">${resaltar(cat.tipo, consultaNorm)}</h2>
+        ${cat.detalle ? `<p class="cat-desc">${resaltar(cat.detalle, consultaNorm)}</p>` : ""}
+        ${cat.cintas.length && !cat.detalle.includes("Cinta") ? `<p class="cat-desc">Cintas: ${cat.cintas.map(esc).join(", ")}</p>` : ""}
       </div>
       <div class="meta">
-        <div class="meta-item"><small>Ring asignado</small><span>🏟 ${esc(cat.ring || "Por definir")}</span></div>
-        <div class="meta-item"><small>Horario aprox.</small><span>⏰ ${esc(cat.horario || "Por definir")}</span></div>
+        <div class="meta-item"><small>Ring asignado</small><span>🏟 ${esc(cat.ringTxt)}</span></div>
+        <div class="meta-item"><small>Horario aprox.</small><span>⏰ ${esc(cat.horaTxt)}</span></div>
       </div>
     </div>
-    <h3 class="list-title">Competidores de la categoría (${miembros.length})</h3>
-    <ul class="comp-list">${items || '<li class="comp comp-empty">Aún no hay competidores publicados en esta categoría.</li>'}</ul>
+    <h3 class="list-title">Competidores de la categoría (${cat.miembros.length})</h3>
+    <ul class="comp-list">${items}${nota}</ul>
   </article>`;
 }
 
-// Vista inicial: todas las categorías como botones que rellenan el buscador.
+// Vista inicial: categorías agrupadas por modalidad; al tocar una se abre.
 function pintarCategorias() {
-  contCats.innerHTML = CATEGORIAS.map((c) => {
-    const n = COMPETIDORES.filter((p) => p.categoria === c.codigo).length;
-    return `<button type="button" class="cat-btn" data-nombre="${esc(c.nombre)}">
-      <span class="code">${esc(c.codigo)}</span>
-      <span class="name">${esc(c.nombre)}</span>
-      <span class="count">${n} competidor${n === 1 ? "" : "es"}</span>
-    </button>`;
-  }).join("");
+  const grupos = new Map();
+  CATS.forEach((c) => {
+    if (!grupos.has(c.tipo)) grupos.set(c.tipo, []);
+    grupos.get(c.tipo).push(c);
+  });
+  contCats.innerHTML = [...grupos.entries()].map(([tipo, lista]) => `
+    <section class="tipo">
+      <h2 class="tipo-title">${esc(tipo)} <small>${plural(lista.length, "categoría", "categorías")}</small></h2>
+      <div class="cat-grid">
+        ${lista.map((c) => `
+        <button type="button" class="cat-btn" data-codigo="${esc(c.codigo)}">
+          <span class="code">${esc(c.codigo)}</span>
+          <span class="name">${esc(c.detalle || c.nombre)}</span>
+          <span class="when">${esc(c.ringTxt)} · ${esc(c.horaTxt)}</span>
+          <span class="count">${plural(c.miembros.length, "competidor", "competidores")}</span>
+        </button>`).join("")}
+      </div>
+    </section>`).join("");
 }
 
 function buscar() {
   const consultaNorm = normalizar(input.value);
-  const consultaCompacta = consultaNorm.replace(/ /g, "");
+  const consultaCompacta = sinEspacios(consultaNorm);
   btnLimpiar.hidden = !input.value;
 
-  // Sin texto: mostrar categorías
+  // Sin texto: mostrar todas las categorías
   if (!consultaNorm) {
     resultados.innerHTML = "";
     vacio.hidden = true;
     contCats.hidden = false;
-    estado.textContent = `${CATEGORIAS.length} categorías · ${COMPETIDORES.length} competidores registrados`;
+    estado.textContent = `${CATS.length} categorías · ${PERSONAS.length} competidores registrados`;
     return;
   }
   contCats.hidden = true;
@@ -153,26 +221,37 @@ function buscar() {
   const catCoinciden = new Set();
   const compCoinciden = new Set();
 
-  if (modo !== "competidor") {
-    indiceCategorias.forEach((c) => {
-      if (coincide(c, consultaNorm, consultaCompacta)) catCoinciden.add(c.codigo);
-    });
-  }
-  if (modo !== "categoria") {
-    indiceCompetidores.forEach((p) => {
-      if (coincide(p, consultaNorm, consultaCompacta)) {
-        compCoinciden.add(p.codigo);
-        catCoinciden.add(p.categoria);
-      }
-    });
+  // Un código exacto (ej. "cpl017") abre solo esa categoría, sin la "CPL-017A".
+  const exacta = modo !== "competidor" ? indiceCategorias.find((e) => e.codigoCompacto === consultaCompacta) : null;
+
+  if (exacta) {
+    catCoinciden.add(exacta.cat.codigo);
+  } else {
+    if (modo !== "competidor") {
+      indiceCategorias.forEach((e) => { if (coincide(e, consultaNorm, consultaCompacta)) catCoinciden.add(e.cat.codigo); });
+    }
+    if (modo !== "categoria") {
+      indicePersonas.forEach((e) => {
+        if (coincide(e, consultaNorm, consultaCompacta)) {
+          compCoinciden.add(e.persona.id);
+          e.persona.categorias.forEach((c) => catCoinciden.add(c));
+        }
+      });
+    }
   }
 
-  const cats = CATEGORIAS.filter((c) => catCoinciden.has(c.codigo));
+  const cats = CATS.filter((c) => catCoinciden.has(c.codigo));
   vacio.hidden = cats.length > 0;
-  estado.textContent = cats.length
-    ? `${cats.length} categoría(s) y ${compCoinciden.size} competidor(es) encontrados`
-    : "";
-  resultados.innerHTML = cats.map((c) => tarjeta(c, consultaNorm, compCoinciden)).join("");
+
+  const partes = [];
+  if (cats.length) partes.push(plural(cats.length, "categoría encontrada", "categorías encontradas"));
+  if (compCoinciden.size) partes.push(plural(compCoinciden.size, "competidor encontrado", "competidores encontrados"));
+  estado.textContent = partes.join(" · ");
+
+  const visibles = cats.slice(0, LIMITE_TARJETAS);
+  const mas = cats.length > visibles.length
+    ? `<p class="more">Mostrando ${visibles.length} de ${cats.length}. Escribe más letras para afinar la búsqueda.</p>` : "";
+  resultados.innerHTML = visibles.map((c) => tarjeta(c, consultaNorm, compCoinciden)).join("") + mas;
 }
 
 /* --------------------- Eventos ----------------------------- */
@@ -191,7 +270,7 @@ $("filtros").addEventListener("click", (e) => {
 contCats.addEventListener("click", (e) => {
   const btn = e.target.closest(".cat-btn");
   if (!btn) return;
-  input.value = btn.dataset.nombre;
+  input.value = btn.dataset.codigo;
   buscar();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
