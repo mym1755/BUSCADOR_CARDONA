@@ -862,7 +862,7 @@ const COMPETIDORES = [
     "edad": 26,
     "cinta": "Café",
     "categorias": [
-      "CPL-059"
+      "CPL-059A"
     ],
     "pesoMin": 40,
     "pesoMax": 300
@@ -985,7 +985,7 @@ const COMPETIDORES = [
     "cinta": "Café",
     "categorias": [
       "KT-031",
-      "CPL-059"
+      "CPL-059A"
     ],
     "pesoMin": 40,
     "pesoMax": 300
@@ -997,7 +997,7 @@ const COMPETIDORES = [
     "edad": 34,
     "cinta": "Café",
     "categorias": [
-      "CPL-059"
+      "CPL-059A"
     ],
     "pesoMin": 40,
     "pesoMax": 300
@@ -1130,6 +1130,222 @@ const COMPETIDORES = [
     "cinta": "Naranja",
     "categorias": [
       "CPL-041"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Madeline Cayax (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 7,
+    "cinta": "Amarilla",
+    "categorias": [
+      "CPL-013"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Angie Vasquez (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Femenino",
+    "edad": 7,
+    "cinta": "Azul",
+    "categorias": [
+      "CPL-014"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Alejandra Rodriguez (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 11,
+    "cinta": "Amarilla",
+    "categorias": [
+      "CPL-025"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Abraham del Cid (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 11,
+    "cinta": "Verde",
+    "categorias": [
+      "CPL-027"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Anderson Steve Chajil (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 15,
+    "cinta": "Verde",
+    "categorias": [
+      "CPL-043"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Aylin Sophia Chajil (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 14,
+    "cinta": "Amarilla",
+    "categorias": [
+      "CPL-045"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Natali Ochoa (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Femenino",
+    "edad": 19,
+    "cinta": "Verde",
+    "categorias": [
+      "CPL-063"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Matias Maldonado (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 6,
+    "cinta": "Morada",
+    "categorias": [
+      "CPL-010"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Madeline Cayax (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 8,
+    "cinta": "Morada",
+    "categorias": [
+      "CPL-022"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Nikolas Merida (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 12,
+    "cinta": "Negra",
+    "categorias": [
+      "CPL-036"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Aylin Sophia Chajil (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 14,
+    "cinta": "Morada",
+    "categorias": [
+      "CPL-046"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Aylin Sophia Chajil (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 14,
+    "cinta": "Negra",
+    "categorias": [
+      "CPL-048"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Leonardo Gonzalez (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 16,
+    "cinta": "Negra",
+    "categorias": [
+      "CPL-052"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Mayreni Méndez (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Femenino",
+    "edad": 17,
+    "cinta": "Negra",
+    "categorias": [
+      "CPL-056"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Randy Galvez (Sparring)",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 18,
+    "cinta": "Azul",
+    "categorias": [
+      "CPL-058"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "César Méndez (Sparring)",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 26,
+    "cinta": "Negra",
+    "categorias": [
+      "CPL-060"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Lenny Vasquez",
+    "academia": "DRAGONES NEGROS",
+    "genero": "Masculino",
+    "edad": 9,
+    "cinta": "Amarilla",
+    "categorias": [
+      "CPL-017"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Marisa Vásquez",
+    "academia": "Zúñiga Marshall",
+    "genero": "Femenino",
+    "edad": 7,
+    "cinta": "Amarilla",
+    "categorias": [
+      "CPL-013"
     ],
     "pesoMin": 40,
     "pesoMax": 300
