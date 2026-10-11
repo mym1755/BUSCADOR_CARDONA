@@ -2,6 +2,7 @@
 const COMPETIDORES = [
   {
     "nombre": "Luis Mazariegos",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 12,
     "cinta": "Negra",
@@ -14,6 +15,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Sofía Mazariegos",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 14,
     "cinta": "Negra",
@@ -26,6 +28,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Fiorella Muñoz",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 7,
     "cinta": "Amarilla",
@@ -37,6 +40,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Ider Molina",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Blanca",
@@ -48,6 +52,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Geralt Ortiz",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 6,
     "cinta": "Amarilla",
@@ -59,6 +64,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Irvin de Paz",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 16,
     "cinta": "Morada",
@@ -70,6 +76,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Mía Herrera",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 12,
     "cinta": "Naranja",
@@ -81,6 +88,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Emilio Ochoa",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 9,
     "cinta": "Naranja",
@@ -92,6 +100,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Keylin Juarez",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 9,
     "cinta": "Naranja",
@@ -103,6 +112,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Valery Betancourt",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 14,
     "cinta": "Morada",
@@ -114,6 +124,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "José Ignacio",
+    "academia": "TMG KARATE",
     "genero": "Masculino",
     "edad": 12,
     "cinta": "Amarilla",
@@ -125,6 +136,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Sara Solares",
+    "academia": "TMG KARATE",
     "genero": "Femenino",
     "edad": 8,
     "cinta": "Naranja",
@@ -136,6 +148,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Valeri Mejía",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 6,
     "cinta": "Blanca",
@@ -147,6 +160,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Olmar Acoj",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 18,
     "cinta": "Azul",
@@ -158,6 +172,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Ezequiel Hernández",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 14,
     "cinta": "Blanca",
@@ -169,6 +184,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Javier Patzan",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 11,
     "cinta": "Amarilla",
@@ -181,6 +197,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Jeffrey Cos",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 19,
     "cinta": "Verde",
@@ -192,6 +209,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "César Méndez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 43,
     "cinta": "Café",
@@ -203,6 +221,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Nehemías de León",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 17,
     "cinta": "Morada",
@@ -214,6 +233,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Jonathan Patzan",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 12,
     "cinta": "Amarilla",
@@ -225,6 +245,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Abraham del Cid",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 10,
     "cinta": "Azul",
@@ -236,6 +257,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "William Pérez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 11,
     "cinta": "Morada",
@@ -247,6 +269,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Mayreni Méndez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 19,
     "cinta": "Verde",
@@ -258,6 +281,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Darwin Méndez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 17,
     "cinta": "Verde",
@@ -269,6 +293,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Maximiliano López",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 9,
     "cinta": "Morada",
@@ -280,6 +305,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Dustin García",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 13,
     "cinta": "Azul",
@@ -291,6 +317,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Bryan Alejandro García",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 16,
     "cinta": "Negra",
@@ -302,6 +329,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Kehira Sagui",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 12,
     "cinta": "Azul",
@@ -313,6 +341,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Luis Iván Cano",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 37,
     "cinta": "Blanca",
@@ -324,6 +353,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Sharon Alexa Cayax",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 13,
     "cinta": "Azul",
@@ -335,6 +365,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Maria Camila Cayax",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 5,
     "cinta": "Amarilla",
@@ -346,6 +377,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Madeline Cayax",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 7,
     "cinta": "Azul",
@@ -357,6 +389,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Natalia Gómez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 10,
     "cinta": "Blanca",
@@ -368,6 +401,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Felipe Gómez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 7,
     "cinta": "Amarilla",
@@ -379,6 +413,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Samuel Mateo",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 7,
     "cinta": "Blanca",
@@ -390,6 +425,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Génesis Gómez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 10,
     "cinta": "Amarilla",
@@ -401,6 +437,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Jimena Mateo",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 9,
     "cinta": "Blanca",
@@ -412,6 +449,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Alisson Bautista",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 8,
     "cinta": "Amarilla",
@@ -423,6 +461,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Yasmín Bautista",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 12,
     "cinta": "Amarilla",
@@ -434,6 +473,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Dylan Iboy",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Naranja",
@@ -445,6 +485,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Adán Santiago Barrera",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Blanca",
@@ -456,6 +497,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Arely Muñoz",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 6,
     "cinta": "Amarilla",
@@ -467,6 +509,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Alejandra López",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 18,
     "cinta": "Blanca",
@@ -478,6 +521,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Dilan Lorenzo",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 10,
     "cinta": "Azul",
@@ -489,6 +533,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Norma Yanet Chávez",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 32,
     "cinta": "Morada",
@@ -500,6 +545,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Claudia Lucia Reyes",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 5,
     "cinta": "Naranja",
@@ -511,6 +557,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Aylin Sophia Chajil",
+    "academia": "DRAGONES CARDONA",
     "genero": "Femenino",
     "edad": 14,
     "cinta": "Verde",
@@ -522,6 +569,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Anderson Steve Chajil",
+    "academia": "DRAGONES CARDONA",
     "genero": "Masculino",
     "edad": 16,
     "cinta": "Azul",
@@ -533,6 +581,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Paola Benito",
+    "academia": "Pro karate",
     "genero": "Femenino",
     "edad": 21,
     "cinta": "Azul",
@@ -544,6 +593,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Juan Pablo Chamalé",
+    "academia": "Pro karate",
     "genero": "Masculino",
     "edad": 18,
     "cinta": "Amarilla",
@@ -555,6 +605,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Alejandra Rodriguez",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 11,
     "cinta": "Naranja",
@@ -566,6 +617,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Samantha Pacheco",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 17,
     "cinta": "Morada",
@@ -577,6 +629,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Leonardo Gonzalez",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 17,
     "cinta": "Verde",
@@ -588,6 +641,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Natali Ochoa",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 17,
     "cinta": "Azul",
@@ -599,6 +653,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Angel Quiroa",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 26,
     "cinta": "Negra",
@@ -610,6 +665,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Angie Vasquez",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 8,
     "cinta": "Morada",
@@ -621,6 +677,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Randy Galvez",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 18,
     "cinta": "Verde",
@@ -632,6 +689,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Romeo Alonzo",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 22,
     "cinta": "Negra",
@@ -643,6 +701,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Anabelle Alonzo",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 17,
     "cinta": "Negra",
@@ -654,6 +713,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Evan Alvarez",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 7,
     "cinta": "Amarilla",
@@ -665,6 +725,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Angel Pacheco",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 14,
     "cinta": "Morada",
@@ -676,6 +737,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Nikolas Merida",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 15,
     "cinta": "Verde",
@@ -687,6 +749,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Matias Maldonado",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 7,
     "cinta": "Naranja",
@@ -698,6 +761,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Santiago Maldonado",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 9,
     "cinta": "Naranja",
@@ -709,6 +773,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Jazmín Ochoa",
+    "academia": "DRAGONES NEGROS",
     "genero": "Femenino",
     "edad": 18,
     "cinta": "Azul",
@@ -720,6 +785,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Bradley Yoc",
+    "academia": "DRAGONES NEGROS",
     "genero": "Masculino",
     "edad": 12,
     "cinta": "Azul",
@@ -731,6 +797,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Asher Soriano",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 9,
     "cinta": "Amarilla",
@@ -742,6 +809,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Libi Soriano",
+    "academia": "MATTHEW TEAM",
     "genero": "Femenino",
     "edad": 14,
     "cinta": "Amarilla",
@@ -752,7 +820,8 @@ const COMPETIDORES = [
     "pesoMax": 300
   },
   {
-    "nombre": "Camila Norales",
+    "nombre": "Camila Morales",
+    "academia": "MATTHEW TEAM",
     "genero": "Femenino",
     "edad": 10,
     "cinta": "Amarilla",
@@ -764,6 +833,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Roger Mateo",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 11,
     "cinta": "Verde",
@@ -775,6 +845,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Bruss Fernandez",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 25,
     "cinta": "Naranja",
@@ -786,6 +857,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Carlos Pop",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 26,
     "cinta": "Café",
@@ -797,6 +869,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Anderson Mateo",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 23,
     "cinta": "Café",
@@ -808,17 +881,19 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Neythan Mateo",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
-    "edad": 23,
+    "edad": 13,
     "cinta": "Azul",
     "categorias": [
-      "CPL-058"
+      "CPL-034"
     ],
     "pesoMin": 40,
     "pesoMax": 300
   },
   {
     "nombre": "Daniel Muracao",
+    "academia": "MATTHEW TEAM",
     "genero": "Masculino",
     "edad": 15,
     "cinta": "Blanca",
@@ -830,6 +905,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Nestor Garcia",
+    "academia": "TEAM BOLAÑOS",
     "genero": "Masculino",
     "edad": 15,
     "cinta": "Azul",
@@ -841,6 +917,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Dulce Lopez",
+    "academia": "TEAM BOLAÑOS",
     "genero": "Femenino",
     "edad": 12,
     "cinta": "Morada",
@@ -852,6 +929,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Josue Bolaños",
+    "academia": "TEAM BOLAÑOS",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Azul",
@@ -864,6 +942,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Enma Bolaños",
+    "academia": "TEAM BOLAÑOS",
     "genero": "Femenino",
     "edad": 6,
     "cinta": "Azul",
@@ -875,6 +954,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Jose Lopez",
+    "academia": "TEAM BOLAÑOS",
     "genero": "Masculino",
     "edad": 6,
     "cinta": "Morada",
@@ -887,6 +967,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Nacho Villatoro",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 22,
     "cinta": "Negra",
@@ -898,6 +979,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Alain Kotto",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 42,
     "cinta": "Café",
@@ -910,6 +992,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Demetrio López",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 34,
     "cinta": "Café",
@@ -921,6 +1004,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Adriana Cuéllar",
+    "academia": "Villatoro Team",
     "genero": "Femenino",
     "edad": 10,
     "cinta": "Morada",
@@ -932,6 +1016,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Carlos Cuéllar",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 6,
     "cinta": "Morada",
@@ -943,6 +1028,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Luis Ángel Werner",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 12,
     "cinta": "Verde",
@@ -954,6 +1040,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Lili Ramírez",
+    "academia": "Villatoro Team",
     "genero": "Femenino",
     "edad": 11,
     "cinta": "Verde",
@@ -965,6 +1052,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Arturo Mejía",
+    "academia": "Villatoro Team",
     "genero": "Masculino",
     "edad": 35,
     "cinta": "Negra",
@@ -976,6 +1064,7 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Ángel Gabriel Vásquez",
+    "academia": "Zúñiga Marshall",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Amarilla",
@@ -987,11 +1076,60 @@ const COMPETIDORES = [
   },
   {
     "nombre": "Ángel Sebastián Vásquez",
+    "academia": "Zúñiga Marshall",
     "genero": "Masculino",
     "edad": 8,
     "cinta": "Amarilla",
     "categorias": [
       "CPL-017A"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Jarol Aldair Alvarado",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 12,
+    "cinta": "Naranja",
+    "categorias": [
+      "CPL-033"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Edison Uciel Alvarado",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 12,
+    "cinta": "Naranja",
+    "categorias": [
+      "CPL-033"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Jose Sic",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 21,
+    "cinta": "Café",
+    "categorias": [
+      "CPL-059"
+    ],
+    "pesoMin": 40,
+    "pesoMax": 300
+  },
+  {
+    "nombre": "Jonathan Beltrán",
+    "academia": "DRAGONES CARDONA",
+    "genero": "Masculino",
+    "edad": 15,
+    "cinta": "Naranja",
+    "categorias": [
+      "CPL-041"
     ],
     "pesoMin": 40,
     "pesoMax": 300
